@@ -1,0 +1,48 @@
+APIS
+1) Register a new user
+    post
+   url:  http://127.0.0.1:8000/api/bank/v1/register/
+        example: {
+        "first_name":"rahul",
+        "username":"rahul",
+        "password":"rahul123",
+        "email":"rahul@gmail.com"
+        }
+2) Login
+    post
+    url: http://127.0.0.1:8000/api/bank/v1/login/
+        eg:{
+        "username":"rahul",
+        "password":"rahul123"
+           }
+3)Create New Account
+    get
+        url: http://127.0.0.1:8000/api/bank/v1/createacc/
+        Returns a new account number
+    post
+        url: http://127.0.0.1:8000/api/bank/v1/createacc/
+        eg: {"acc_number":"1000","username":"rahul","balance":"50000"}
+4)Deposit money
+    post
+        url: http://127.0.0.1:8000/api/bank/v1/deposit/<int:acc_number>
+        eg:{
+        "amount"="1000"
+        }
+5)Withdraw Money
+    post
+        url: http://127.0.0.1:8000/api/bank/v1/withdraw/<int:acc_number>
+        eg:{
+        "amount"="1000"
+        }
+6)Balance check
+    get
+        url:http://127.0.0.1:8000/api/bank/v1/balance/<int:acc_number>
+        returns the balance amount
+7)Send money
+    post
+        url:http://127.0.0.1:8000/api/bank/v1/transaction/
+        eg:{"accno":"1000","to_acc":"1005","amount":"5000"}
+8)Transactions
+    get
+        url: http://127.0.0.1:8000/api/bank/v1/transaction_his/<int:acc_number>
+        returns all transactions
